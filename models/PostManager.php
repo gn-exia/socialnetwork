@@ -35,3 +35,10 @@ function SearchInPosts($search)
     . "ORDER BY post.created_at DESC");
   return $response->fetchAll();
 }
+
+function CreateNewPost($userId, $msg)
+{
+  global $PDO;
+  $response = $PDO->exec("INSERT INTO post(user_id, content) values ($userId, '$msg')");
+  //return $response;
+}
